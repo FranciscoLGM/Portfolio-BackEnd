@@ -32,4 +32,9 @@ public class PersonaService implements IPersonaService {
         return personRepo.findById(id).orElse(null);
     }
 
+    @Override
+    public void updatePerson(Persona person) {
+        personRepo.save(person);
+    }
+
 }
