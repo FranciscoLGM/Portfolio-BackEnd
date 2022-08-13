@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class Controller {
+public class ControllerPersona {
 
     @Autowired
     private IPersonaService personService;
@@ -30,14 +30,20 @@ public class Controller {
         return personService.listPerson();
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void deletePerson(@PathVariable Long id) {
-        personService.deletePerson(id);
+    @GetMapping("find/person/{id}")
+    @ResponseBody
+    public Persona findPerson(@PathVariable Long id) {
+        return personService.findPerson(id);
     }
 
     @PutMapping("/update/person")
     public void updatePeson(@RequestBody Persona person) {
         personService.updatePerson(person);
+    }
+
+    @DeleteMapping("/delete/person/{id}")
+    public void deletePerson(@PathVariable Long id) {
+        personService.deletePerson(id);
     }
 
 }
