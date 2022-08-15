@@ -13,18 +13,13 @@ public class PersonaService implements IPersonaService {
     public PersonaRepository personRepo;
 
     @Override
-    public List<Persona> listPerson() {
-        return personRepo.findAll();
-    }
-
-    @Override
     public void createPerson(Persona person) {
         personRepo.save(person);
     }
 
     @Override
-    public void deletePerson(Long id) {
-        personRepo.deleteById(id);
+    public List<Persona> listPerson() {
+        return personRepo.findAll();
     }
 
     @Override
@@ -35,6 +30,11 @@ public class PersonaService implements IPersonaService {
     @Override
     public void updatePerson(Persona person) {
         personRepo.save(person);
+    }
+
+    @Override
+    public void deletePerson(Long id) {
+        personRepo.deleteById(id);
     }
 
 }

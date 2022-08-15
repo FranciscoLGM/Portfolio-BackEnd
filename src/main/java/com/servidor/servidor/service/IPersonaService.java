@@ -5,14 +5,14 @@ import java.util.List;
 
 public interface IPersonaService {
 
-    public List<Persona> listPerson();
-
     public void createPerson(Persona person);
 
-    public void deletePerson(Long id);
+    public List<Persona> listPerson();
 
     public Persona findPerson(Long id);
 
     public void updatePerson(Persona person);
+
+    public void deletePerson(Long id);
 
 }
