@@ -17,10 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1")
-<<<<<<< HEAD
-=======
 @CrossOrigin(origins = "http://localhost:4200")
->>>>>>> main
 public class ControllerHabilidad {
 
     @Autowired
