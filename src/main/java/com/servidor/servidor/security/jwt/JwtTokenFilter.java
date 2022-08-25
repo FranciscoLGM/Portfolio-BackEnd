@@ -1,6 +1,6 @@
 package com.servidor.servidor.security.jwt;
 
-import com.servidor.servidor.security.service.UserDetailsServiceImpl;
+import com.servidor.servidor.security.services.UserDetailsServiceImpl;
 import java.io.IOException;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

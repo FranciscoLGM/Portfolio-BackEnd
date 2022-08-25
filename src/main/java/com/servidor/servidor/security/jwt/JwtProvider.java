@@ -1,6 +1,6 @@
 package com.servidor.servidor.security.jwt;
 
-import com.servidor.servidor.security.model.UserMain;
+import com.servidor.servidor.security.models.UserMain;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
