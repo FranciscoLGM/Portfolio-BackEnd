@@ -20,13 +20,13 @@ public class Role {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private RoleName rolName;
+    private RoleName roleName;
 
     public Role() {
     }
 
-    public Role(RoleName rolName) {
-        this.rolName = rolName;
+    public Role(RoleName roleName) {
+        this.roleName = roleName;
     }
 
 }

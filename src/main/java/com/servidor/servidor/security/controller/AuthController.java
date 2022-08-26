@@ -49,7 +49,7 @@ public class AuthController {
     @Autowired
     JwtProvider jwtProvider;
 
-    @PostMapping("/new")
+    @PostMapping("/new/user")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NewUser newUser, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Message("Campos mal puestos o email invalido!"), HttpStatus.BAD_REQUEST);
@@ -63,7 +63,7 @@ public class AuthController {
         User user
                 = new User(newUser.getUserName(), newUser.getEmail(), passwordEncoder.encode(newUser.getPassword()));
         Set<Role> roles = new HashSet<>();
-        roles.add(roleService.getByRoleName(RoleName.ROLE_ADMIN).get());
+        roles.add(roleService.getByRoleName(RoleName.ROLE_USER).get());
         if (newUser.getRoles().contains("admin")) {
             roles.add(roleService.getByRoleName(RoleName.ROLE_ADMIN).get());
         }
@@ -73,7 +73,7 @@ public class AuthController {
         return new ResponseEntity(new Message("Usuario guardado!"), HttpStatus.CREATED);
     }
 
-    @PostMapping("login")
+    @PostMapping("signin")
     public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUser loginUser, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Message("Campos mal puestos!"), HttpStatus.BAD_REQUEST);

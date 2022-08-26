@@ -1,4 +1,4 @@
-package com.servidor.servidor.config;
+/*package com.servidor.servidor.config;
 
 import com.servidor.servidor.security.enums.RoleName;
 import com.servidor.servidor.security.models.Role;
@@ -16,7 +16,8 @@ public class CreateRoles implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Role roleAdmin = new Role(RoleName.ROLE_ADMIN);
+        Role roleUser = new Role(RoleName.ROLE_USER);
         roleService.save(roleAdmin);
     }
 
-}
+}*/
