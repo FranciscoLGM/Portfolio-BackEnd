@@ -8,13 +8,10 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
 import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -30,10 +27,8 @@ public class JwtProvider {
 
     public String generateToken(Authentication authentication) {
         UserMain userMain = (UserMain) authentication.getPrincipal();
-        List<String> roles = userMain.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList());
         return Jwts.builder()
                 .setSubject(userMain.getUsername())
-                .claim("roles", roles)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime() + expiration * 1000))
                 .signWith(SignatureAlgorithm.HS512, secret.getBytes())
@@ -57,7 +52,7 @@ public class JwtProvider {
         } catch (IllegalArgumentException e) {
             logger.error("Token vacio!");
         } catch (SignatureException e) {
-            logger.error("Fallo con la firma!");
+            logger.error("Fallo en la firma!");
         }
         return false;
     }
