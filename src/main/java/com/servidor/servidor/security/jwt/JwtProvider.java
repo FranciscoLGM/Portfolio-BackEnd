@@ -27,7 +27,8 @@ public class JwtProvider {
     
     public String generateToken(Authentication authentication) {
         UserMain userMain = (UserMain) authentication.getPrincipal();
-        return Jwts.builder().setSubject(userMain.getUsername())
+        return Jwts.builder()
+                .setSubject(userMain.getUsername())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime() + expiration * 1000))
                 .signWith(SignatureAlgorithm.HS512, secret)
@@ -51,7 +52,7 @@ public class JwtProvider {
         } catch (IllegalArgumentException e) {
             logger.error("Token vacio!");
         } catch (SignatureException e) {
-            logger.error("Fallo con la firma!");
+            logger.error("Fallo en la firma!");
         }
         return false;
     }
