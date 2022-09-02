@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OrderColumn;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,7 +17,6 @@ public class Habilidad {
     private Long id;
 
     private String skill;
-    @OrderColumn(name = "rate")
     private String rate;
 
     public Habilidad() {
