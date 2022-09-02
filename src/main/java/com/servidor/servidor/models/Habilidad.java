@@ -18,7 +18,7 @@ public class Habilidad {
     private Long id;
 
     private String skill;
-    @OrderBy("rate ASC")
+    @OrderBy("rate DESC")
     private String rate;
 
     public Habilidad() {
