@@ -4,6 +4,7 @@ import com.servidor.servidor.models.Habilidad;
 import com.servidor.servidor.repositorys.HabilidadRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,7 +20,7 @@ public class HabilidadService implements IHabilidadService {
     
     @Override
     public List<Habilidad> listSkill() {
-        return skillRepo.findAll();
+        return skillRepo.findAll(Sort.by(Sort.Direction.DESC, "rate"));
     }
     
     @Override
