@@ -4,6 +4,7 @@ import com.servidor.servidor.models.Experiencia;
 import com.servidor.servidor.repositorys.ExperienciaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,7 +20,7 @@ public class ExperienciaService implements IExperienciaService {
 
     @Override
     public List<Experiencia> listExpertise() {
-        return expertiseRepo.findAll();
+        return expertiseRepo.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.servidor.servidor.models.Proyecto;
 import com.servidor.servidor.repositorys.ProyectoRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,7 +20,7 @@ public class ProyectoService implements IProyectoService {
     
     @Override
     public List<Proyecto> listProject() {
-        return projectRepo.findAll();
+        return projectRepo.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
     
     @Override

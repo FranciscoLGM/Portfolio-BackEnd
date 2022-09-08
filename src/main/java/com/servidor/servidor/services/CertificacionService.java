@@ -4,6 +4,7 @@ import com.servidor.servidor.models.Certificacion;
 import com.servidor.servidor.repositorys.CertificacionRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,7 +20,7 @@ public class CertificacionService implements ICertificacionService {
     
     @Override
     public List<Certificacion> listCertification() {
-        return certificationRepo.findAll();
+        return certificationRepo.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
     
     @Override

@@ -4,6 +4,7 @@ import com.servidor.servidor.models.Educacion;
 import com.servidor.servidor.repositorys.EducacionRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,7 +20,7 @@ public class EducacionService implements IEducacionService {
     
     @Override
     public List<Educacion> listEducation() {
-        return educationRepo.findAll();
+        return educationRepo.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
     
     @Override
