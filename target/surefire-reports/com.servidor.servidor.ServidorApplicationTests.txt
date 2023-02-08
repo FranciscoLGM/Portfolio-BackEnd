@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.servidor.servidor.ServidorApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.795 s - in com.servidor.servidor.ServidorApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 30.277 s - in com.servidor.servidor.ServidorApplicationTests
